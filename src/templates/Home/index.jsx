@@ -40,14 +40,14 @@ export class Home extends Component {
     } = this.state;
 
     const nextPage = page + postsPerPage;
-    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage)
+    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage);
     posts.push(...nextPosts);
 
     this.setState({ posts, page: nextPage });
   }
 
   handleChange = (e) => {
-    const { value } = (e).target;
+    const { value } = e.target;
     this.setState({ searchValue: value });
   }
   /* a key precida ficar no elemento root (<div>) */
@@ -86,13 +86,13 @@ export class Home extends Component {
         )}
 
         <div className="button-container">
-          {!searchValue && (
+          {!searchValue && 
             <Button
               text="Load more posts"
-              OnClick={this.loadMorePosts}
+              onClick={this.loadMorePosts}
               disabled={noMorePosts}
             />
-          )}
+          }
 
         </div>
       </section>
